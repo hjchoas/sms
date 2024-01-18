@@ -1,0 +1,20 @@
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class SmsController {
+
+    @GetMapping("/")
+    public String home(Model model) {
+        // You can add logic here to retrieve SMS messages from your storage
+        // For simplicity, I'm using static data
+        model.addAttribute("smsMessages", getSampleMessages());
+        return "index";
+    }
+
+    // Sample data - replace this with your logic to retrieve SMS messages
+    private List<String> getSampleMessages() {
+        return Arrays.asList("Hello, how are you?", "This is a sample SMS message.", "Another message.");
+    }
+}
